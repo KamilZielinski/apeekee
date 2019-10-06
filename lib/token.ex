@@ -1,4 +1,4 @@
-defmodule Apeekee.KeyVerifier do
+defmodule Apeekee.Token do
   @seed Application.get_env(:apeekee, :session_signing_seed_name)
   @secret Application.get_env(:apeekee, :session_signing_secret)
   @duration Application.get_env(:apeekee, :session_signing_duration_seconds)
