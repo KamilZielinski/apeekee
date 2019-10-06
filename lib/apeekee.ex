@@ -1,4 +1,5 @@
 defmodule Apeekee.Plug do
+  import Plug.Conn
   alias Apeekee.Token
   alias Apeekee.Auth
 
