@@ -55,16 +55,14 @@ defmodule MyAppWeb.Router do
 and use it whenever you want to confirm that key is valid with `pipe_through :authenticate`
 
 ```elixir
-  scope "/api", Verimail2Web do
-    pipe_through :api
+  ...
+  scope "/users" do
+    pipe_through :authenticate
 
-    scope "/users" do
-      pipe_through :authenticate
-
-      post "/", UsersController, :create
-      get "/:id", UsersController, :show
-    end
+    post "/", UsersController, :create
+    get "/:id", UsersController, :show
   end
+  ...
 ```
 
 ## License
