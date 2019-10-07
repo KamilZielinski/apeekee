@@ -1,18 +1,20 @@
 # Apeekee
 
-Apeekee is a library to create and verify API keys via headers. It heavily depends on `Phoenix`'s mechanism to generate and confirm assigned expiring API key
+Apeekee is a library that helps you create and verify API keys via headers. It heavily depends on Phoenix's `Token` module.
 
 ## Installation
 
-Add to `config.exs`
+Add globally to `config.exs` or configuration per environment
 
 ```elixir
+...
 config :apeekee,
   session_signing_seed_name: "key_seed",
   # generate new secret with mix phx.gen.secret
   session_signing_secret: "mIoVfweA9Mhxu3hOhPTD/wbt/pwHb3NyM6yKOB/iuhjDyVsvumTtGte+wK2QELdA",
   session_signing_duration_seconds: 200_000,
   apeekee_header_name: "X-AUTH-KEY"
+...
 ```
 
 This library requires you only to create a protocol's implementation eg.
