@@ -1,20 +1,20 @@
 defmodule Apeekee.Plug do
   import Plug.Conn
-  alias Apeekee.Token
+  alias Apeekee.Key
   alias Apeekee.Auth
 
   def init(_), do: []
 
   def call(conn, _) do
-    case Token.get_auth_token(conn) do
-      {:ok, token} ->
-        case Auth.auth_by_token(conn, token) do
-          nil -> Auth.on_failure(conn)
-          user -> Auth.on_success(conn, user)
+    case Key.get_auth_key(conn) do
+      {:ok, key} ->
+        case Auth.auth_by_key(conn, key) do
+          {:ok, user} -> Auth.on_success(conn, user)
+          {:error, error} -> Auth.on_failure(conn, error)
         end
 
-      _ ->
-        Auth.on_failure(conn)
+      {:error, error} ->
+        Auth.on_failure(conn, error)
     end
   end
 end
