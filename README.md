@@ -41,7 +41,7 @@ This library requires you only to create a protocol's implementation eg.
   end
 ```
 
-In your `router.ex` file add new pipeline called `:authenticate`
+In your `router.ex` file add new pipeline called eg. `:authenticate`
 ```elixir
 defmodule MyAppWeb.Router do
   use MyAppWeb, :router
@@ -52,7 +52,7 @@ defmodule MyAppWeb.Router do
   ...
 ```
 
-and use it whenever you want to confirm that key is valid with `pipe_through :authenticate`
+and add it whenever you want in your `routes.ex` file to confirm if key is valid with `pipe_through :authenticate`
 
 ```elixir
   ...
