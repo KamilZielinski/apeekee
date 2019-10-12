@@ -10,7 +10,7 @@ Add globally to `config.exs` or configuration per environment
 ...
 config :apeekee,
   apeekee_header_name: "X-AUTH-KEY",
-  apeekee_length: 45
+  apeekee_key_length: 45
 ...
 ```
 
