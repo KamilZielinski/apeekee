@@ -1,6 +1,6 @@
 # Apeekee
 
-Apeekee is a library that helps you create and verify API keys via headers. It heavily depends on Phoenix's `Token` module.
+Apeekee is a library that helps you create and verify API keys via headers
 
 ## Installation
 
@@ -9,11 +9,8 @@ Add globally to `config.exs` or configuration per environment
 ```elixir
 ...
 config :apeekee,
-  session_signing_seed_name: "key_seed",
-  # generate new secret with mix phx.gen.secret
-  session_signing_secret: "mIoVfweA9Mhxu3hOhPTD/wbt/pwHb3NyM6yKOB/iuhjDyVsvumTtGte+wK2QELdA",
-  session_signing_duration_seconds: 200_000,
-  apeekee_header_name: "X-AUTH-KEY"
+  apeekee_header_name: "X-AUTH-KEY",
+  apeekee_length: 45
 ...
 ```
 
@@ -23,7 +20,6 @@ This library requires you only to create a protocol's implementation eg.
     import Plug.Conn
     alias MyApp.Accounts
 
-    @impl
     def auth_by_key(_conn, key) do
       case Accounts.get_user_by_key(key) do
         {:ok, key} -> {:ok, key}
@@ -31,12 +27,10 @@ This library requires you only to create a protocol's implementation eg.
       end
     end
 
-    @impl
     def on_success(conn, user) do
       assign(conn, :client, user)
     end
 
-    @impl
     def on_failure(conn) do
       send_resp(conn, 401, "") |> halt()
     end

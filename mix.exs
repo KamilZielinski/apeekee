@@ -21,6 +21,9 @@ defmodule Apeekee.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:phoenix, "1.4.10", only: :test},
+      # https://github.com/pma/amqp/issues/99#issuecomment-404780165
+      {:ranch_proxy_protocol, github: "heroku/ranch_proxy_protocol", override: true},
       {:plug_cowboy, "~> 2.0"}
     ]
   end
