@@ -1,6 +1,5 @@
 defmodule ApeekeeTest do
   use ExUnit.Case
-  use ExUnit.CaseTemplate
   use Phoenix.ConnTest
   doctest Apeekee.Key
 
