@@ -31,7 +31,7 @@ This library requires you only to create a protocol's implementation eg.
       assign(conn, :client, user)
     end
 
-    def on_failure(conn) do
+    def on_failure(conn, _error) do
       send_resp(conn, 401, "") |> halt()
     end
   end
