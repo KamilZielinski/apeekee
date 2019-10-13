@@ -14,7 +14,7 @@ config :apeekee,
 ...
 ```
 
-This library requires you only to create a protocol's implementation eg.
+This library requires you only to create a protocol's implementation for `Plug.Conn` eg.
 ```elixir
   defimpl Apeekee.Auth, for: Plug.Conn do
     import Plug.Conn
